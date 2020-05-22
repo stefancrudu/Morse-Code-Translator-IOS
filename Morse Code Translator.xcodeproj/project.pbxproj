@@ -13,6 +13,7 @@
 		D45CE8482476BC2C00116DD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45CE8462476BC2C00116DD5 /* Main.storyboard */; };
 		D45CE84A2476BC3800116DD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45CE8492476BC3800116DD5 /* Assets.xcassets */; };
 		D45CE84D2476BC3900116DD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45CE84B2476BC3800116DD5 /* LaunchScreen.storyboard */; };
+		D4DE494A24771C520037233B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE494924771C520037233B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D45CE8492476BC3800116DD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D45CE84C2476BC3900116DD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D45CE84E2476BC3900116DD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4DE494924771C520037233B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D42144ED2477185100A5AD94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D45CE8462476BC2C00116DD5 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D42144EE2477185900A5AD94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D42144EF2477186000A5AD94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D45CE8442476BC2C00116DD5 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		D45CE8342476BC2C00116DD5 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +81,15 @@
 		D45CE83F2476BC2C00116DD5 /* Morse Code Translator */ = {
 			isa = PBXGroup;
 			children = (
+				D42144EF2477186000A5AD94 /* Controller */,
+				D42144EE2477185900A5AD94 /* Model */,
+				D42144ED2477185100A5AD94 /* View */,
 				D45CE8402476BC2C00116DD5 /* AppDelegate.swift */,
 				D45CE8422476BC2C00116DD5 /* SceneDelegate.swift */,
-				D45CE8442476BC2C00116DD5 /* ViewController.swift */,
-				D45CE8462476BC2C00116DD5 /* Main.storyboard */,
 				D45CE8492476BC3800116DD5 /* Assets.xcassets */,
-				D45CE84B2476BC3800116DD5 /* LaunchScreen.storyboard */,
 				D45CE84E2476BC3900116DD5 /* Info.plist */,
+				D45CE84B2476BC3800116DD5 /* LaunchScreen.storyboard */,
+				D4DE494924771C520037233B /* Constants.swift */,
 			);
 			path = "Morse Code Translator";
 			sourceTree = "<group>";
@@ -141,6 +168,7 @@
 				D45CE8452476BC2C00116DD5 /* ViewController.swift in Sources */,
 				D45CE8412476BC2C00116DD5 /* AppDelegate.swift in Sources */,
 				D45CE8432476BC2C00116DD5 /* SceneDelegate.swift in Sources */,
+				D4DE494A24771C520037233B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +320,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "crudu.stefan.Morse-Code-Translator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Morse Code Translator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,7 +338,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "crudu.stefan.Morse-Code-Translator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Morse Code Translator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
