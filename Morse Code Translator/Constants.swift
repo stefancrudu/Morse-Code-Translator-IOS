@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    
+    static let shareMessage = "Hi,\nI use Code Morse Translator from https://github.com/stefancrudu/Morse-Code-Translator-IOS. \nCheck it now!"
     struct colors {
         static let mainColor = "Main Color"
         static let secoundColor = "Secound Color"

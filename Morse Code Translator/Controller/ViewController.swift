@@ -44,7 +44,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        print("shareButtonPressed")
+        
+        if let text = translatedLabel.text, text.contains("-") || text.contains("·") {
+            let activityControler = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+            present(activityControler, animated: true, completion: nil)
+        }else{
+            let text = Constants.shareMessage
+            let activityControler = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+            present(activityControler, animated: true, completion: nil)
+        }
+        
     }
     
     
