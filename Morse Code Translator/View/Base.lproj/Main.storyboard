@@ -41,10 +41,10 @@
                                     <action selector="translatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lb5-jR-tXX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-fa-Udq" userLabel="Translate From View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-fa-Udq" userLabel="Translate From View" customClass="CustomViewBackgroundTranslateFromTextView" customModule="Morse_Code_Translator" customModuleProvider="target">
                                 <rect key="frame" x="25" y="148" width="364" height="200"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type someting... " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-aT-SPC" userLabel="Translate From Text View">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type someting..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-aT-SPC" userLabel="Translate From Text View">
                                         <rect key="frame" x="20" y="20" width="324" height="160"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -71,7 +71,7 @@
                                     <action selector="clearTranslateFromTextViewPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPf-Xe-LYD"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-iQ-Lec" userLabel="Translated View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-iQ-Lec" userLabel="Translated View" customClass="CustomViewBackgroundTranslatedLabel" customModule="Morse_Code_Translator" customModuleProvider="target">
                                 <rect key="frame" x="25" y="548" width="364" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to translate in morse code?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3S-Sx-SSu">
@@ -104,6 +104,9 @@
                                                         </constraints>
                                                         <color key="tintColor" name="MainColor"/>
                                                         <state key="normal" image="lightbulb" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="useLightButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nL0-5k-Gn7"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="use light" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge1-vz-1WE" userLabel="Use Light Label">
                                                         <rect key="frame" x="25.5" y="34" width="54" height="26"/>
@@ -135,6 +138,9 @@
                                                         </constraints>
                                                         <color key="tintColor" name="MainColor"/>
                                                         <state key="normal" image="play.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="playSoundButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4zY-in-DFx"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="play sound" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-SZ-6fv" userLabel="Play Sound Label">
                                                         <rect key="frame" x="18" y="34" width="69.5" height="26"/>
@@ -166,6 +172,9 @@
                                                         </constraints>
                                                         <color key="tintColor" name="MainColor"/>
                                                         <state key="normal" image="square.and.arrow.up.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qEv-rS-Jf1"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PO-jp-Ids" userLabel="Share Label">
                                                         <rect key="frame" x="34.5" y="34" width="35.5" height="26"/>
@@ -216,9 +225,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="translateButton" destination="eS4-ey-pyZ" id="yun-hk-X84"/>
                         <outlet property="translateFromTextView" destination="ZaF-aT-SPC" id="J5K-2j-k2h"/>
                         <outlet property="translatedLabel" destination="U3S-Sx-SSu" id="6KU-Qk-siP"/>
-                        <outlet property="viewBackgroundTextView" destination="Dy4-fa-Udq" id="FT0-Vo-I0B"/>
+                        <outlet property="viewBackgroundTranslateFromTextView" destination="Dy4-fa-Udq" id="FT0-Vo-I0B"/>
                         <outlet property="viewBackgroundTranslatedLabel" destination="QEL-iQ-Lec" id="mzT-PW-ldW"/>
                     </connections>
                 </viewController>

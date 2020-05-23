@@ -17,8 +17,8 @@ struct Constants {
         static let placeholderColorDark = "Placeholder Color Dark"
     }
         
-    struct fromTextView {
-        static let placeholderFromTextView = "Type someting..."
+    struct placeholders {
+        static let placeholderTranslateFromTextView = "Type someting..."
         static let placeholderTranslatedLabel = "What do you want to translate in morse code?"
     }
     
