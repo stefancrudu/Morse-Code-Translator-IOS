@@ -22,10 +22,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func translatePressed(_ sender: UIButton) {
-        if let text = translateFromTextView.text, text.isEmpty {
-            self.resetUI()
+        if let text = translateFromTextView.text, !text.isEmpty {
+            let translatorManager = TranslatorManager()
+            translatedLabel.text = translatorManager.getMorseCode(from: text)
         }else{
-            translatedLabel.text = translateFromTextView.text
+            self.resetUI()
         }
         translateFromTextView.endEditing(true)
     }
