@@ -17,6 +17,7 @@
 		D4B9968124790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9968024790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift */; };
 		D4B99685247928F20059A8AD /* MorseCodeAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B99684247928F20059A8AD /* MorseCodeAlphabet.swift */; };
 		D4B9968724792BB80059A8AD /* TranslatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9968624792BB80059A8AD /* TranslatorManager.swift */; };
+		D4B99689247A44E10059A8AD /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B99688247A44E10059A8AD /* SoundManager.swift */; };
 		D4DE494A24771C520037233B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE494924771C520037233B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		D4B9968024790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewBackgroundTranslatedLabel.swift; sourceTree = "<group>"; };
 		D4B99684247928F20059A8AD /* MorseCodeAlphabet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCodeAlphabet.swift; sourceTree = "<group>"; };
 		D4B9968624792BB80059A8AD /* TranslatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorManager.swift; sourceTree = "<group>"; };
+		D4B99688247A44E10059A8AD /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		D4DE494924771C520037233B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 			children = (
 				D4B99684247928F20059A8AD /* MorseCodeAlphabet.swift */,
 				D4B9968624792BB80059A8AD /* TranslatorManager.swift */,
+				D4B99688247A44E10059A8AD /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				D4B9967E247906FC0059A8AD /* ViewBackgroundTranslateFromCustomTextView.swift in Sources */,
 				D4DE494A24771C520037233B /* Constants.swift in Sources */,
 				D4B9968724792BB80059A8AD /* TranslatorManager.swift in Sources */,
+				D4B99689247A44E10059A8AD /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var translatedLabel: UILabel!
     @IBOutlet weak var translateButton: UIButton!
     
+    let translatorManager = TranslatorManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         translateFromTextView.delegate = self
@@ -23,7 +25,6 @@ class ViewController: UIViewController {
 
     @IBAction func translatePressed(_ sender: UIButton) {
         if let text = translateFromTextView.text, !text.isEmpty {
-            let translatorManager = TranslatorManager()
             translatedLabel.text = translatorManager.getMorseCode(from: text)
         }else{
             self.resetUI()
@@ -40,11 +41,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playSoundButtonPressed(_ sender: UIButton) {
-        print("playSoundButtonPressed")
+        if let translateFromText = translatedLabel.text {
+            translatorManager.playMorseSound(from: translateFromText)
+        }
     }
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        
         if let text = translatedLabel.text, text.contains("-") || text.contains("·") {
             let activityControler = UIActivityViewController(activityItems: [text], applicationActivities: nil)
             present(activityControler, animated: true, completion: nil)
@@ -53,7 +55,6 @@ class ViewController: UIViewController {
             let activityControler = UIActivityViewController(activityItems: [text], applicationActivities: nil)
             present(activityControler, animated: true, completion: nil)
         }
-        
     }
     
     
