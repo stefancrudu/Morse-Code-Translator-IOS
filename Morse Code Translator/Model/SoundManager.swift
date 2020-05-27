@@ -9,12 +9,14 @@
 import Foundation
 import AVFoundation
 
-
 class SoundManager {
     
     private(set) var frequency: Float
     private(set) var amplitude: Float
     private(set) var outputVolume: Float
+    
+    private(set) var isPlaying: Bool = false
+    private var shouldStop: Bool = false
     
     private lazy var engine: AVAudioEngine = {
         let engine = AVAudioEngine()
@@ -42,10 +44,14 @@ class SoundManager {
     func playMorseSound(from source: String) {
         let timeMap = getTimeMap(for: source)
         for characterTime in timeMap {
-            if characterTime > 0 {
-                playSound(duration: characterTime)
+            if !shouldStop {
+                if characterTime > 0 {
+                    playSound(duration: characterTime)
+                } else {
+                    Thread.sleep(forTimeInterval: TimeInterval(characterTime * -1))
+                }
             } else {
-                Thread.sleep(forTimeInterval: TimeInterval(characterTime * -1))
+                isPlaying = false
             }
         }
     }
@@ -66,6 +72,10 @@ class SoundManager {
         } catch {
             print("Could not start engine: \(error)")
         }
+    }
+    
+    func stop() {
+        shouldStop = true
     }
     
     private func getSourceNode() -> AVAudioSourceNode {
