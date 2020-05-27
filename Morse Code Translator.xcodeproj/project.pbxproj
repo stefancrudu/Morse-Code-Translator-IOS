@@ -13,12 +13,8 @@
 		D45CE8482476BC2C00116DD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45CE8462476BC2C00116DD5 /* Main.storyboard */; };
 		D45CE84A2476BC3800116DD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45CE8492476BC3800116DD5 /* Assets.xcassets */; };
 		D45CE84D2476BC3900116DD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45CE84B2476BC3800116DD5 /* LaunchScreen.storyboard */; };
-		D4B9967E247906FC0059A8AD /* ViewBackgroundTranslateFromCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9967D247906FC0059A8AD /* ViewBackgroundTranslateFromCustomTextView.swift */; };
-		D4B9968124790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9968024790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift */; };
-		D4B99685247928F20059A8AD /* MorseCodeAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B99684247928F20059A8AD /* MorseCodeAlphabet.swift */; };
 		D4B9968724792BB80059A8AD /* TranslatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9968624792BB80059A8AD /* TranslatorManager.swift */; };
 		D4B99689247A44E10059A8AD /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B99688247A44E10059A8AD /* SoundManager.swift */; };
-		D4DE494A24771C520037233B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE494924771C520037233B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +26,8 @@
 		D45CE8492476BC3800116DD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D45CE84C2476BC3900116DD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D45CE84E2476BC3900116DD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4B9967D247906FC0059A8AD /* ViewBackgroundTranslateFromCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackgroundTranslateFromCustomTextView.swift; sourceTree = "<group>"; };
-		D4B9968024790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewBackgroundTranslatedLabel.swift; sourceTree = "<group>"; };
-		D4B99684247928F20059A8AD /* MorseCodeAlphabet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCodeAlphabet.swift; sourceTree = "<group>"; };
 		D4B9968624792BB80059A8AD /* TranslatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorManager.swift; sourceTree = "<group>"; };
 		D4B99688247A44E10059A8AD /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		D4DE494924771C520037233B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +52,6 @@
 		D42144EE2477185900A5AD94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D4B99684247928F20059A8AD /* MorseCodeAlphabet.swift */,
 				D4B9968624792BB80059A8AD /* TranslatorManager.swift */,
 				D4B99688247A44E10059A8AD /* SoundManager.swift */,
 			);
@@ -70,7 +61,6 @@
 		D42144EF2477186000A5AD94 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D4B9967F24790F390059A8AD /* Custom Elements */,
 				D45CE8442476BC2C00116DD5 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -103,18 +93,8 @@
 				D45CE8492476BC3800116DD5 /* Assets.xcassets */,
 				D45CE84E2476BC3900116DD5 /* Info.plist */,
 				D45CE84B2476BC3800116DD5 /* LaunchScreen.storyboard */,
-				D4DE494924771C520037233B /* Constants.swift */,
 			);
 			path = "Morse Code Translator";
-			sourceTree = "<group>";
-		};
-		D4B9967F24790F390059A8AD /* Custom Elements */ = {
-			isa = PBXGroup;
-			children = (
-				D4B9967D247906FC0059A8AD /* ViewBackgroundTranslateFromCustomTextView.swift */,
-				D4B9968024790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift */,
-			);
-			path = "Custom Elements";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,13 +168,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B99685247928F20059A8AD /* MorseCodeAlphabet.swift in Sources */,
 				D45CE8452476BC2C00116DD5 /* ViewController.swift in Sources */,
-				D4B9968124790F6B0059A8AD /* CustomViewBackgroundTranslatedLabel.swift in Sources */,
 				D45CE8412476BC2C00116DD5 /* AppDelegate.swift in Sources */,
 				D45CE8432476BC2C00116DD5 /* SceneDelegate.swift in Sources */,
-				D4B9967E247906FC0059A8AD /* ViewBackgroundTranslateFromCustomTextView.swift in Sources */,
-				D4DE494A24771C520037233B /* Constants.swift in Sources */,
 				D4B9968724792BB80059A8AD /* TranslatorManager.swift in Sources */,
 				D4B99689247A44E10059A8AD /* SoundManager.swift in Sources */,
 			);
