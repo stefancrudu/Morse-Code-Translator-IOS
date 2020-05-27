@@ -40,11 +40,10 @@ class SoundManager {
     }
     
     func playMorseSound(from source: String) {
-        let soundManager = SoundManager()
         let timeMap = getTimeMap(for: source)
         for characterTime in timeMap {
             if characterTime > 0 {
-                soundManager.playSound(duration: characterTime)
+                playSound(duration: characterTime)
             } else {
                 Thread.sleep(forTimeInterval: TimeInterval(characterTime * -1))
             }
