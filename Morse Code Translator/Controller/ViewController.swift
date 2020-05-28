@@ -10,30 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var viewBackgroundTranslateFromTextView: CustomViewBackgroundTranslateFromTextView!
-    @IBOutlet weak var viewBackgroundTranslatedLabel: CustomViewBackgroundTranslatedLabel!
-    @IBOutlet weak var translateFromTextView: UITextView!
     @IBOutlet weak var translatedLabel: UILabel!
     @IBOutlet weak var translateButton: UIButton!
     
-    let translatorManager = TranslatorManager()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        translateFromTextView.delegate = self
+    @IBOutlet weak var translateFromTextView: UITextView! {
+        didSet { translateFromTextView.delegate = self }
     }
+    
+    let translatorManager = TranslatorManager()
+    let soundManager = SoundManager()
 
     @IBAction func translatePressed(_ sender: UIButton) {
         if let text = translateFromTextView.text, !text.isEmpty {
             translatedLabel.text = translatorManager.getMorseCode(from: text)
-        }else{
-            self.resetUI()
+        } else {
+            resetUI()
         }
         translateFromTextView.endEditing(true)
     }
     
     @IBAction func clearTranslateFromTextViewPressed(_ sender: UIButton) {
-        self.resetUI()
+        resetUI()
     }
     
     @IBAction func useLightButtonPressed(_ sender: UIButton) {
@@ -42,7 +39,7 @@ class ViewController: UIViewController {
     
     @IBAction func playSoundButtonPressed(_ sender: UIButton) {
         if let translateFromText = translatedLabel.text {
-            translatorManager.playMorseSound(from: translateFromText)
+            soundManager.playMorseSound(from: translateFromText)
         }
     }
     
@@ -50,18 +47,17 @@ class ViewController: UIViewController {
         if let text = translatedLabel.text, text.contains("-") || text.contains("·") {
             let activityControler = UIActivityViewController(activityItems: [text], applicationActivities: nil)
             present(activityControler, animated: true, completion: nil)
-        }else{
+        } else {
             let text = Constants.shareMessage
             let activityControler = UIActivityViewController(activityItems: [text], applicationActivities: nil)
             present(activityControler, animated: true, completion: nil)
         }
     }
     
-    
     private func resetUI() {
-        translateFromTextView.text = Constants.placeholders.placeholderTranslateFromTextView
-        translateFromTextView.textColor = UIColor(named: Constants.colors.placeholderColorLight)
-        translatedLabel.text = Constants.placeholders.placeholderTranslatedLabel
+        translateFromTextView.text = Constants.placeholderTranslateFromTextView
+        translateFromTextView.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        translatedLabel.text = Constants.placeholderTranslatedLabel
         translatedLabel.textAlignment = .center
     }
 }
@@ -73,7 +69,7 @@ extension ViewController: UITextViewDelegate {
         
     func textViewDidBeginEditing(_ textView: UITextView) {
         translateFromTextView.text = ""
-        translateFromTextView.textColor = UIColor(named: Constants.colors.secoundColor)
+        translateFromTextView.textColor = #colorLiteral(red: 0.3330000043, green: 0.3330000043, blue: 0.3330000043, alpha: 1)
         translatedLabel.textAlignment = .left
         dismissKeyboardWhenTouchOutside()
     }
@@ -91,4 +87,14 @@ extension ViewController: UITextViewDelegate {
         view.endEditing(true)
     }
     
+}
+
+// MARK: - Constants
+extension ViewController {
+    enum Constants {
+        static let placeholderTranslateFromTextView = "Type someting..."
+        static let placeholderTranslatedLabel = "What do you want to translate in morse code?"
+        
+        static let shareMessage = "Hi,\nI use Code Morse Translator from https://github.com/stefancrudu/Morse-Code-Translator-IOS. \nCheck it now!"
+    }
 }

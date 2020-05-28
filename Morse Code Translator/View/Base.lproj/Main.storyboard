@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -41,7 +41,7 @@
                                     <action selector="translatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lb5-jR-tXX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-fa-Udq" userLabel="Translate From View" customClass="CustomViewBackgroundTranslateFromTextView" customModule="Morse_Code_Translator" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-fa-Udq" userLabel="Translate From View">
                                 <rect key="frame" x="25" y="148" width="364" height="200"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type someting..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-aT-SPC" userLabel="Translate From Text View">
@@ -58,6 +58,11 @@
                                     <constraint firstAttribute="bottom" secondItem="ZaF-aT-SPC" secondAttribute="bottom" constant="20" id="fVS-m8-Hr9"/>
                                     <constraint firstItem="ZaF-aT-SPC" firstAttribute="leading" secondItem="Dy4-fa-Udq" secondAttribute="leading" constant="20" id="iSV-hf-Gvx"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-nm-AgG" userLabel="Clear Translate From Button">
                                 <rect key="frame" x="361" y="110" width="28" height="30"/>
@@ -71,7 +76,7 @@
                                     <action selector="clearTranslateFromTextViewPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPf-Xe-LYD"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-iQ-Lec" userLabel="Translated View" customClass="CustomViewBackgroundTranslatedLabel" customModule="Morse_Code_Translator" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-iQ-Lec" userLabel="Translated View">
                                 <rect key="frame" x="25" y="548" width="364" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to translate in morse code?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3S-Sx-SSu">
@@ -86,6 +91,17 @@
                                     <constraint firstItem="U3S-Sx-SSu" firstAttribute="leading" secondItem="QEL-iQ-Lec" secondAttribute="leading" constant="20" id="f4h-8f-i5U"/>
                                     <constraint firstAttribute="trailing" secondItem="U3S-Sx-SSu" secondAttribute="trailing" constant="20" id="uvb-ei-Van"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" name="Main Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cDd-zm-6QV" userLabel="Footer Menu">
                                 <rect key="frame" x="20" y="802" width="374" height="60"/>
@@ -228,8 +244,6 @@
                         <outlet property="translateButton" destination="eS4-ey-pyZ" id="yun-hk-X84"/>
                         <outlet property="translateFromTextView" destination="ZaF-aT-SPC" id="J5K-2j-k2h"/>
                         <outlet property="translatedLabel" destination="U3S-Sx-SSu" id="6KU-Qk-siP"/>
-                        <outlet property="viewBackgroundTranslateFromTextView" destination="Dy4-fa-Udq" id="FT0-Vo-I0B"/>
-                        <outlet property="viewBackgroundTranslatedLabel" destination="QEL-iQ-Lec" id="mzT-PW-ldW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -245,6 +259,9 @@
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <namedColor name="Main Color">
+            <color red="0.52899998426437378" green="0.88599997758865356" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="MainColor">
             <color red="0.52899998426437378" green="0.88599997758865356" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

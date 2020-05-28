@@ -9,32 +9,85 @@
 import Foundation
 import AVFoundation
 
-
-struct SoundManager {
+class SoundManager {
+    
+    private(set) var frequency: Float
+    private(set) var amplitude: Float
+    private(set) var outputVolume: Float
+    
+    private(set) var isPlaying: Bool = false
+    private var shouldStop: Bool = false
+    
+    private lazy var engine: AVAudioEngine = {
+        let engine = AVAudioEngine()
+        engine.mainMixerNode.outputVolume = outputVolume
+        return engine
+    }()
+    
+    private var outputFormat: AVAudioFormat {
+        return engine.outputNode.inputFormat(forBus: 0)
+    }
+    
+    private var inputFormat: AVAudioFormat? {
+        return  AVAudioFormat(commonFormat: outputFormat.commonFormat,
+                              sampleRate: outputFormat.sampleRate,
+                              channels: 1,
+                              interleaved: outputFormat.isInterleaved)
+    }
+    
+    init(frequency: Float = 500, amplitude: Float = 0.3, outputVolume: Float = 0.8) {
+        self.frequency = frequency
+        self.amplitude = amplitude
+        self.outputVolume = outputVolume
+    }
+    
+    func playMorseSound(from source: String) {
+        let timeMap = getTimeMap(for: source)
+        for characterTime in timeMap {
+            if !shouldStop {
+                if characterTime > 0 {
+                    playSound(duration: characterTime)
+                } else {
+                    Thread.sleep(forTimeInterval: TimeInterval(characterTime * -1))
+                }
+            } else {
+                isPlaying = false
+            }
+        }
+    }
     
     func playSound(duration: Float) {
-        let frequency:Float = Constants.sound.frecvency
-        let amplitude:Float = Constants.sound.amplitude
-        let duration: Float = duration
-        let twoPi = 2 * Float.pi
-        let signal: (Float) -> Float = { (phase: Float) -> Float in
-            return sin(phase)
+        let srcNode = getSourceNode()
+        
+        engine.attach(srcNode)
+        engine.connect(srcNode, to: engine.mainMixerNode, format: inputFormat)
+        engine.connect(engine.mainMixerNode, to: engine.outputNode, format: outputFormat)
+        
+        do {
+            try engine.start()
+            
+            CFRunLoopRunInMode(.defaultMode, CFTimeInterval(duration), false)
+            
+            engine.stop()
+        } catch {
+            print("Could not start engine: \(error)")
         }
-        let engine = AVAudioEngine()
-        let mainMixer = engine.mainMixerNode
-        let output = engine.outputNode
-        let outputFormat = output.inputFormat(forBus: 0)
-        let sampleRate = Float(outputFormat.sampleRate)
-        let inputFormat = AVAudioFormat(commonFormat: outputFormat.commonFormat,
-                                        sampleRate: outputFormat.sampleRate,
-                                        channels: 1,
-                                        interleaved: outputFormat.isInterleaved)
+    }
+    
+    func stop() {
+        shouldStop = true
+    }
+    
+    private func getSourceNode() -> AVAudioSourceNode {
+        let twoPi = 2 * Float.pi
+        
         var currentPhase: Float = 0
-        let phaseIncrement = (twoPi / sampleRate) * frequency
-        let srcNode = AVAudioSourceNode { _, _, frameCount, audioBufferList -> OSStatus in
+        let phaseIncrement = (twoPi / Float(outputFormat.sampleRate)) * frequency
+        
+        return AVAudioSourceNode { _, _, frameCount, audioBufferList -> OSStatus in
             let ablPointer = UnsafeMutableAudioBufferListPointer(audioBufferList)
             for frame in 0..<Int(frameCount) {
-                let value = signal(currentPhase) * amplitude
+                let value = sin(currentPhase) * self.amplitude
                 currentPhase += phaseIncrement
                 if currentPhase >= twoPi {
                     currentPhase -= twoPi
@@ -49,22 +102,33 @@ struct SoundManager {
             }
             return noErr
         }
-
-        engine.attach(srcNode)
-        engine.connect(srcNode, to: mainMixer, format: inputFormat)
-        engine.connect(mainMixer, to: output, format: outputFormat)
-        mainMixer.outputVolume = 0.8
-
-        do {
-            try engine.start()
-            
-            CFRunLoopRunInMode(.defaultMode, CFTimeInterval(duration), false)
-            
-            engine.stop()
-        } catch {
-            print("Could not start engine: \(error)")
-        }
-
     }
     
+    private func getTimeMap(for source: String)-> [Float] {
+        var timeMap:[Float] = []
+        for character in source {
+            switch character {
+            case "·":
+                timeMap.append(Constants.dotDuration)
+            case "-":
+                timeMap.append(Constants.dashDuration)
+            case " ":
+                timeMap.append(Constants.spaceBetweenCharacters)
+            case "/":
+                timeMap.append(Constants.spaceBetweenWords)
+            default:
+                break
+            }
+        }
+        return timeMap
+    }
+}
+
+extension SoundManager {
+    enum Constants {
+        static let dotDuration: Float = 0.20
+        static let dashDuration: Float = 0.40
+        static let spaceBetweenCharacters: Float = -0.20
+        static let spaceBetweenWords: Float = -0.20
+    }
 }
