@@ -15,8 +15,8 @@ class SoundManager {
     private(set) var amplitude: Float
     private(set) var outputVolume: Float
     
-    private(set) var isPlaying: Bool = false
-    private var shouldStop: Bool = false
+    var isPlaying: Bool = false
+    var useFlashLight: Bool = false
     
     private lazy var engine: AVAudioEngine = {
         let engine = AVAudioEngine()
@@ -35,7 +35,7 @@ class SoundManager {
                               interleaved: outputFormat.isInterleaved)
     }
     
-    init(frequency: Float = 500, amplitude: Float = 0.3, outputVolume: Float = 0.8) {
+    init(frequency: Float = 500, amplitude: Float = 0.3, outputVolume: Float = 0) {
         self.frequency = frequency
         self.amplitude = amplitude
         self.outputVolume = outputVolume
@@ -43,44 +43,44 @@ class SoundManager {
     
     func playMorseSound(from source: String) {
         let timeMap = getTimeMap(for: source)
-        for characterTime in timeMap {
-            if !shouldStop {
-                if characterTime > 0 {
-                    playSound(duration: characterTime)
-                } else {
-                    Thread.sleep(forTimeInterval: TimeInterval(characterTime * -1))
-                }
-            } else {
-                isPlaying = false
-            }
-        }
-    }
-    
-    func playSound(duration: Float) {
         let srcNode = getSourceNode()
         
         engine.attach(srcNode)
         engine.connect(srcNode, to: engine.mainMixerNode, format: inputFormat)
         engine.connect(engine.mainMixerNode, to: engine.outputNode, format: outputFormat)
-        
         do {
             try engine.start()
-            
-            CFRunLoopRunInMode(.defaultMode, CFTimeInterval(duration), false)
-            
+        
+            for timeCharacter in timeMap {
+                if !isPlaying {
+                    return
+                }
+                if timeCharacter > 0 {
+                    engine.mainMixerNode.outputVolume = 0.9
+                    if useFlashLight {
+                        toggleTorch(on: true)
+                    }
+                    usleep(useconds_t(timeCharacter))
+                    if useFlashLight {
+                        toggleTorch(on: false)
+                    }
+                    engine.mainMixerNode.outputVolume = 0.0
+                    usleep(useconds_t(Constants.spaceBetweenCharacters * -1))
+                    
+                }else{
+                    usleep(useconds_t(Constants.spaceBetweenWords * -1))
+                }
+            }
+            isPlaying = false
             engine.stop()
         } catch {
             print("Could not start engine: \(error)")
         }
-    }
-    
-    func stop() {
-        shouldStop = true
+        isPlaying = false
     }
     
     private func getSourceNode() -> AVAudioSourceNode {
         let twoPi = 2 * Float.pi
-        
         var currentPhase: Float = 0
         let phaseIncrement = (twoPi / Float(outputFormat.sampleRate)) * frequency
         
@@ -104,11 +104,11 @@ class SoundManager {
         }
     }
     
-    private func getTimeMap(for source: String)-> [Float] {
-        var timeMap:[Float] = []
+    private func getTimeMap(for source: String)-> [Int] {
+        var timeMap:[Int] = []
         for character in source {
             switch character {
-            case "·":
+            case ".":
                 timeMap.append(Constants.dotDuration)
             case "-":
                 timeMap.append(Constants.dashDuration)
@@ -122,13 +122,35 @@ class SoundManager {
         }
         return timeMap
     }
+    
+    private func toggleTorch(on: Bool) {
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+
+                if on == true {
+                    device.torchMode = .on
+                } else {
+                    device.torchMode = .off
+                }
+
+                device.unlockForConfiguration()
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
+        }
+    }
 }
 
 extension SoundManager {
     enum Constants {
-        static let dotDuration: Float = 0.20
-        static let dashDuration: Float = 0.40
-        static let spaceBetweenCharacters: Float = -0.20
-        static let spaceBetweenWords: Float = -0.20
+        static let dotDuration: Int = 200000
+        static let dashDuration: Int = 400000
+        static let spaceBetweenCharacters: Int = -200000
+        static let spaceBetweenWords: Int = -400000
     }
 }

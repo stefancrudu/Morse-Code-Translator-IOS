@@ -158,8 +158,8 @@
                                                             <action selector="playSoundButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4zY-in-DFx"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="play sound" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-SZ-6fv" userLabel="Play Sound Label">
-                                                        <rect key="frame" x="18" y="34" width="69.5" height="26"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="play code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-SZ-6fv" userLabel="Play Sound Label">
+                                                        <rect key="frame" x="21.5" y="34" width="62" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                         <color key="textColor" name="MainColor"/>
                                                         <nil key="highlightedColor"/>
@@ -241,9 +241,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="playButton" destination="6Wk-6M-prF" id="DSr-9D-EMU"/>
+                        <outlet property="playSoundButtonLabel" destination="GfD-SZ-6fv" id="ZDE-vj-rlW"/>
                         <outlet property="translateButton" destination="eS4-ey-pyZ" id="yun-hk-X84"/>
                         <outlet property="translateFromTextView" destination="ZaF-aT-SPC" id="J5K-2j-k2h"/>
                         <outlet property="translatedLabel" destination="U3S-Sx-SSu" id="6KU-Qk-siP"/>
+                        <outlet property="useLightButtonLabel" destination="ge1-vz-1WE" id="38P-d8-hNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
