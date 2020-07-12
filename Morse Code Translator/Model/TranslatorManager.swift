@@ -30,6 +30,7 @@ struct TranslatorManager {
             "q" : "--.-",
             "r" : ".-.",
             "s" : "...",
+            "t" : "-",
             "u" : "..-",
             "v" : "...-",
             "w" : ".--",
@@ -48,7 +49,9 @@ struct TranslatorManager {
             "9" : "----.",
             "0" : "-----",
             
-            " " : "/"
+            " " : "/",
+            "." : "..--..",
+            "," : ".-.-"
         ]
     }
     
@@ -60,5 +63,26 @@ struct TranslatorManager {
             }
         }
         return morseCode
+    }
+    
+    func getLatinText(from source: String) -> String {
+        var latinText: String = ""
+        for word in source.components(separatedBy: "/"){
+            for character in word.components(separatedBy: " "){
+                if let letter = alphabet.getLetter(from: character) {
+                    latinText += "\(letter)"
+                }
+            }
+            latinText += " "
+        }
+        return latinText
+    }
+}
+
+// MARK: - Extension Dictionary
+
+extension Dictionary where Value: Equatable {
+    func getLetter(from code: Value) -> Key? {
+        return first(where: { $1 == code })?.key
     }
 }

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Background" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QjU-MF-PsF" userLabel="App Background">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Background" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QjU-MF-PsF" userLabel="App Background">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="tintColor" red="0.98382941277656744" green="1" blue="0.99254605379737326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
@@ -41,14 +41,19 @@
                                     <action selector="translatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lb5-jR-tXX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-fa-Udq" userLabel="Translate From View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-fa-Udq" userLabel="Translate Latin View">
                                 <rect key="frame" x="25" y="148" width="364" height="200"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type someting..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-aT-SPC" userLabel="Translate From Text View">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type someting..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-aT-SPC" userLabel="Translate Latin View">
                                         <rect key="frame" x="20" y="20" width="324" height="160"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="Main Placeholder Color "/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" name="Placeholder Color Dark"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.36470588240000001" green="0.81960784310000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,7 +69,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-nm-AgG" userLabel="Clear Translate From Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-nm-AgG" userLabel="Clear Translate Text Latin Button">
                                 <rect key="frame" x="361" y="110" width="28" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6EN-bt-H0e"/>
@@ -73,32 +78,42 @@
                                 <color key="tintColor" red="0.36470588240000001" green="0.81960784310000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="trash.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="clearTranslateFromTextViewPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPf-Xe-LYD"/>
+                                    <action selector="clearTextViewsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPf-Xe-LYD"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-iQ-Lec" userLabel="Translated View">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-ny-2wn" userLabel="Clear Translate Morse Code Button">
+                                <rect key="frame" x="25" y="510" width="28" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="Xyz-ww-hS5"/>
+                                    <constraint firstAttribute="height" constant="30" id="iBj-P1-grm"/>
+                                </constraints>
+                                <color key="tintColor" red="0.36470588240000001" green="0.81960784310000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="trash.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="clearTextViewsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AH1-5v-Sc9"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-iQ-Lec" userLabel="Translate From Morse Code View">
                                 <rect key="frame" x="25" y="548" width="364" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to translate in morse code?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3S-Sx-SSu">
-                                        <rect key="frame" x="20" y="20" width="324" height="57.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="-.-- .--. . / ... --- -- . .. -. --." translatesAutoresizingMaskIntoConstraints="NO" id="RIH-tX-fwA" userLabel="Translate From Morse Code View">
+                                        <rect key="frame" x="20" y="20" width="324" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" name="Main Color"/>
+                                        <color key="textColor" name="Secound Placeholder Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="numbersAndPunctuation" smartDashesType="no"/>
+                                    </textView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="U3S-Sx-SSu" firstAttribute="top" secondItem="QEL-iQ-Lec" secondAttribute="top" constant="20" id="Gqn-0S-2yK"/>
-                                    <constraint firstItem="U3S-Sx-SSu" firstAttribute="leading" secondItem="QEL-iQ-Lec" secondAttribute="leading" constant="20" id="f4h-8f-i5U"/>
-                                    <constraint firstAttribute="trailing" secondItem="U3S-Sx-SSu" secondAttribute="trailing" constant="20" id="uvb-ei-Van"/>
-                                </constraints>
+                                <color key="backgroundColor" name="Placeholder Color Light"/>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" name="Main Color"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -213,6 +228,18 @@
                                     <constraint firstAttribute="height" constant="60" id="Xs6-7x-qSl"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwC-u9-prX" userLabel="Clear Translate Morse Code Button">
+                                <rect key="frame" x="61" y="510" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PCf-ZP-Y4Q"/>
+                                    <constraint firstAttribute="width" constant="30" id="WQ4-C1-vIB"/>
+                                </constraints>
+                                <color key="tintColor" red="0.36470588240000001" green="0.81960784310000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="questionmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="helpButtonButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MOS-bz-TgI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -224,14 +251,18 @@
                             <constraint firstItem="Dy4-fa-Udq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="J07-0x-xEU"/>
                             <constraint firstItem="Dy4-fa-Udq" firstAttribute="top" secondItem="MR5-nm-AgG" secondAttribute="bottom" constant="8" id="JIo-xc-gAS"/>
                             <constraint firstItem="eS4-ey-pyZ" firstAttribute="top" secondItem="Dy4-fa-Udq" secondAttribute="bottom" constant="60" id="L2D-BF-l5C"/>
+                            <constraint firstItem="3Qh-ny-2wn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="LlZ-d2-rmY"/>
                             <constraint firstItem="QEL-iQ-Lec" firstAttribute="top" secondItem="gTk-aa-LbT" secondAttribute="bottom" constant="60" id="OSa-t1-XLr"/>
+                            <constraint firstItem="QEL-iQ-Lec" firstAttribute="top" secondItem="3Qh-ny-2wn" secondAttribute="bottom" constant="8" id="SSC-Q5-irG"/>
                             <constraint firstItem="cDd-zm-6QV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bOk-Sw-AJi"/>
                             <constraint firstItem="QjU-MF-PsF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="btV-Ar-SpD"/>
                             <constraint firstAttribute="trailing" secondItem="QjU-MF-PsF" secondAttribute="trailing" id="cWl-NY-lOY"/>
                             <constraint firstItem="cDd-zm-6QV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lrY-77-Tyc"/>
                             <constraint firstItem="QjU-MF-PsF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lw9-lE-8uV"/>
+                            <constraint firstItem="QEL-iQ-Lec" firstAttribute="top" secondItem="BwC-u9-prX" secondAttribute="bottom" constant="8" id="mdC-4t-1tO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MR5-nm-AgG" secondAttribute="trailing" constant="25" id="mew-tc-Ufa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QEL-iQ-Lec" secondAttribute="trailing" constant="25" id="nLH-Om-sut"/>
+                            <constraint firstItem="BwC-u9-prX" firstAttribute="leading" secondItem="3Qh-ny-2wn" secondAttribute="trailing" constant="8" id="qe0-AM-KHj"/>
                             <constraint firstItem="eS4-ey-pyZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qhr-aG-VhH"/>
                             <constraint firstItem="Dy4-fa-Udq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="wDZ-LH-kp8"/>
                             <constraint firstItem="QEL-iQ-Lec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="wyR-Ee-9nb"/>
@@ -241,11 +272,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="appBackground" destination="QjU-MF-PsF" id="iBv-wE-Ggg"/>
                         <outlet property="playButton" destination="6Wk-6M-prF" id="DSr-9D-EMU"/>
                         <outlet property="playSoundButtonLabel" destination="GfD-SZ-6fv" id="ZDE-vj-rlW"/>
                         <outlet property="translateButton" destination="eS4-ey-pyZ" id="yun-hk-X84"/>
+                        <outlet property="translateFromMorseCodeView" destination="RIH-tX-fwA" id="1dr-zE-Mpm"/>
                         <outlet property="translateFromTextView" destination="ZaF-aT-SPC" id="J5K-2j-k2h"/>
-                        <outlet property="translatedLabel" destination="U3S-Sx-SSu" id="6KU-Qk-siP"/>
                         <outlet property="useLightButtonLabel" destination="ge1-vz-1WE" id="38P-d8-hNt"/>
                     </connections>
                 </viewController>
@@ -260,13 +292,26 @@
         <image name="arrow.down" catalog="system" width="120" height="128"/>
         <image name="lightbulb" catalog="system" width="113" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <namedColor name="Main Color">
             <color red="0.52899998426437378" green="0.88599997758865356" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Main Placeholder Color ">
+            <color red="0.66699999570846558" green="0.66699999570846558" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="MainColor">
             <color red="0.52899998426437378" green="0.88599997758865356" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Placeholder Color Dark">
+            <color red="0.66699999570846558" green="0.66699999570846558" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Placeholder Color Light">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secound Placeholder Color">
+            <color red="0.33300000429153442" green="0.33300000429153442" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

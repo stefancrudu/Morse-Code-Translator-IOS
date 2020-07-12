@@ -10,7 +10,6 @@ import Foundation
 import AVFoundation
 
 class SoundManager {
-    
     private(set) var frequency: Float
     private(set) var amplitude: Float
     private(set) var outputVolume: Float
@@ -145,6 +144,8 @@ class SoundManager {
         }
     }
 }
+
+// MARK: - Extension SoundManager
 
 extension SoundManager {
     enum Constants {
