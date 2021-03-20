@@ -1,16 +1,15 @@
- <img align="right" width="35%" src="/screenshots/hand-hold-app.png">
+ <img align="right" width="35%" src="/screenshots/morse-code-translator-screenshots.png">
 
-# Voice Recorder&nbsp;&nbsp;&nbsp;<img src="/screenshots/icon.png" height=41>
+# MORSE CODE TRANSLATOR&nbsp;&nbsp;&nbsp;<img src="/screenshots/morse-code-trnaslator-icon.png" height=41>
 
- Discover a small app that can help you to record and playback sounds with a friendly interface. 
- The advanced player helps you to play, pause, skip on timeline.
- All records are shortly chronologically from newest to oldest.
- ## Features: 
- - Simple user interface;
- - One tap to record;
- - Play, pause, skip the record file;
- - Share or delete your record file;
- - Recording Format:  M4a.
+Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes or dits and dahs.<br>
+For that, I create an application to help you easily encode Morse code or decode it.
+## Features: 
+- Encode Morse code
+- Decode Morse code
+- Play sound 
+- Use flashlight
+- Share option.
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -19,7 +18,7 @@
 
 ## Screenshots:
 <p align="center">
- <img width="30%" src="/screenshots/player-screenshot.png">
- <img width="30%" src="/screenshots/list-screenshot.png">
- <img width="30%" src="/screenshots/record-screenshot.png">
+ <img width="30%" src="/screenshots/morse-code-translator-screenshot-1.png">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <img width="30%" src="/screenshots/morse-code-translator-screenshot-2.png">
 </p>
